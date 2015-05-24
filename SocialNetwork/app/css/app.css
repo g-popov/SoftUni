@@ -1,0 +1,11 @@
+label, button {
+	display: block;
+}
+
+#regForm label {
+	display: inline-block;
+}
+
+header button {
+	display: inline-block;
+}
