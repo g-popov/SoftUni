@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/style.css"/>
+    <title>Estates</title>
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <img class="img-header" src="imgs/trash.png"/>
+        <h1 class="site-header">SoftUni Properties</h1>
+        <nav id="menu">
+            <ul id="guestMenu">
+                <li class="nav-button"><a href="#/">Home</a></li>
+                <li class="nav-button"><a href="#/login/">Login</a></li>
+                <li class="nav-button"><a href="#/register/">Register</a></li>
+            </ul>
+            <ul id="userMenu">
+                <li class="nav-button"><a href="#/home/">Home</a></li>
+                <li class="nav-button"><a href="#/estates/">Estates</a></li>
+                <li class="nav-button"><a href="#/estates/add/">Add Estate</a></li>
+                <li class="nav-button"><a href="#/logout/">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="main"></div>
+
+</div>
+
+<script src="lib/jquery-1.11.3.min.js"></script>
+<script src="lib/q.js"></script>
+<script src="lib/mustache.min.js"></script>
+<script src="lib/sammy-latest.min.js"></script>
+
+<script src="js/models/headers.js"></script>
+<script src="js/models/requester.js"></script>
+<script src="js/models/userModel.js"></script>
+<script src="js/models/estateModel.js"></script>
+
+<script src="js/controllers/userController.js"></script>
+<script src="js/controllers/estateController.js"></script>
+
+<script src="js/app.js"></script>
+
+
+</body>
+</html>
