@@ -1,0 +1,26 @@
+﻿@model StreamPowered.Web.Models.BindingModels.AddRatingBindingModel
+
+@using (Html.BeginForm("Add", "Ratings", new { id = Model.GameId }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+
+        <div class="form-group">
+            
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.RatingValue,
+                    Enumerable.Range(1, 5).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RatingValue, "", new { @class = "text-danger" })
+                <input type="submit" value="Add" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+}
+

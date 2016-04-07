@@ -1,0 +1,18 @@
+[
+  {
+    "UserName": "admin",
+    "Email": "admin@example.com",
+    "Password": "adminPass123",
+    "Role": "Admin"
+  },
+  {
+    "UserName": "Student",
+    "Email": "Student@softuni.bg",
+    "Password": "studentPass123"
+  },
+  {
+    "UserName": "fiLeV",
+    "Email": "fiLeV@gmail.com",
+    "Password": "FiLevs!Sup3rS3cr37!P@ssw0rd"
+  }
+]

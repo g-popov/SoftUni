@@ -1,0 +1,35 @@
+﻿@model IEnumerable<StreamPowered.Web.Models.ViewModels.GameShortViewModel>
+@{
+    ViewBag.Title = "All Games";
+}
+
+@Html.DisplayForModel()
+
+<ul class="pagination">
+    @{
+        string leftArowClass = "";
+        string rightArrowClass = "";
+        if (ViewBag.CurrentPage == 1)
+        {
+            leftArowClass = "disabled";
+        }
+
+        if (ViewBag.CurrentPage == ViewBag.TotalPages)
+        {
+            rightArrowClass = "disabled";
+        }
+    }
+
+    <li class="@leftArowClass">@Html.ActionLink("<<", "Index", "Games", routeValues: new { page = ViewBag.CurrentPage - 1, count = 5 }, htmlAttributes: null)</li>
+    @for (int page = 1; page <= ViewBag.TotalPages; page++)
+    {
+        string listItemClass = string.Empty;
+        if (page == ViewBag.CurrentPage)
+        {
+            listItemClass = "active";
+        }
+
+        <li class="@listItemClass">@Html.ActionLink(page.ToString(), "Index", "Games", routeValues: new { page = page, count = 5 }, htmlAttributes: null)</li>
+    }
+    <li class="@rightArrowClass">@Html.ActionLink(">>", "Index", "Games", routeValues: new { page = ViewBag.CurrentPage + 1, count = 5 }, htmlAttributes: null)</li>
+</ul>

@@ -1,0 +1,9 @@
+﻿@model StreamPowered.Web.Models.ViewModels.GenreDetailsViewModel
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>All games in <span class="btn btn-info">@Model.Name</span></h2>
+
+@Html.DisplayFor(g => g.Games)
+

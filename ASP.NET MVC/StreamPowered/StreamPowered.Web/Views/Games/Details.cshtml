@@ -1,0 +1,54 @@
+﻿@using StreamPowered.Web.Models.BindingModels
+@model StreamPowered.Web.Models.ViewModels.GameDetailsViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div id="game-container">
+    <h1>
+        @Model.Title
+        <span class="btn btn-warning">@string.Format("{0:0.00}", Model.Rating)</span>
+    </h1>
+    <h3>Genre: @Html.ActionLink(@Model.Genre, "Details", "Genres", new { id = Model.GenreId }, new { @class = "btn btn-info" })</h3>
+    <div>
+        Your rating:
+        @if (this.ViewBag.UserHasRated)
+        {
+            <span>@this.ViewBag.UserRating</span>
+
+        }
+        else
+        {
+            var model = new AddRatingBindingModel { GameId = Model.Id };
+            @Html.Partial("_AddRatingPartial", model)
+        }
+    </div>
+    
+    <h3>Description:</h3>
+    <p>@Model.Description</p>
+    <h3>System Requirements:</h3>
+    <p>@Model.SystemRequirements</p>
+    <h3>Images:</h3>
+    <div id="images" class="row">
+        @foreach (var image in Model.Images)
+        {
+            <img src="@image" class="col-md-4" />
+        }
+    </div>
+    <div id="reviews" class="row">
+        <h3>Reviews:</h3>
+        @if (this.Request.IsAuthenticated)
+        {
+            var model = new ReviewBindingModel { GameId = Model.Id };
+            @Html.Partial("_AddReviewPartial", model)
+
+        }
+        @if (Model.Reviews.Count() < 1)
+        {
+            <p>No reviews yet.</p>
+        }
+        @Html.DisplayFor(m => m.Reviews)
+    </div>
+
+</div>
+

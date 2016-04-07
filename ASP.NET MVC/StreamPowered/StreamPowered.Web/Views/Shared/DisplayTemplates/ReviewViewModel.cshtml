@@ -1,0 +1,10 @@
+﻿@model StreamPowered.Web.Models.ViewModels.ReviewViewModel
+
+<div class="review-box panel panel-info col-md-6" >
+    <p>@Model.Content</p>
+    <div>
+        <strong>@Model.Author</strong>
+        on @Model.CreationTime
+    </div>
+    <div>on game @Html.ActionLink(@Model.Game, "Details", "Games", new { id = Model.GameId }, null)</div>
+</div>

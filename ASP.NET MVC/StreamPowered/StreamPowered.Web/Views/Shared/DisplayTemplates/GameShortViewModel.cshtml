@@ -1,0 +1,23 @@
+﻿@model StreamPowered.Web.Models.ViewModels.GameShortViewModel
+
+<div class="game-box">
+    <h2>
+        @Html.ActionLink(@Model.Title, "Details", "Games", new { id = Model.Id }, null)
+        @if (Model.Rating != null)
+        {
+            <span class="btn btn-warning">@string.Format("{0:0.00}", Model.Rating)</span>
+        }
+        
+    </h2>
+    @if (Model.CoverImage != null)
+    {
+        <img src="@Model.CoverImage" />
+    }
+    else
+    {
+        <img src="http://vchnews.ca/wp-content/uploads/sites/17/2013/07/placeholder-600x300.png" />
+    }
+</div>
+
+
+
